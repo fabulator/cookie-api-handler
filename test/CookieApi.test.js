@@ -16,6 +16,6 @@ describe('CookieApi service testing', () => {
         });
 
         expect(api.getCookies()).toEqual({ a: '@' });
-        expect(api.getDefaultHeaders()['cookie']).toEqual('a=%40');
-    })
+        expect(api.getDefaultHeaders().cookie).toEqual('a=%40');
+    });
 });
