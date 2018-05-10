@@ -1,6 +1,6 @@
 // @flow
 import cookie from 'cookie';
-import { Api } from 'rest-api-handler';
+import Api from 'rest-api-handler/src/Api';
 
 class CookieApi<ResponseType> extends Api<ResponseType> {
     fetchRequest: (request: Request) => Promise<Response>;
@@ -11,6 +11,9 @@ class CookieApi<ResponseType> extends Api<ResponseType> {
         }).join(';');
     }
 
+    /**
+     * Get cookies as human readable object.
+     */
     getCookies(): ?{[string]: string} {
         const cookies = this.getDefaultHeaders().cookie;
         if (!cookies) {
@@ -28,15 +31,21 @@ class CookieApi<ResponseType> extends Api<ResponseType> {
     }
 }
 
+/**
+ * Rewrite response processor so it can parse cookies from server response.
+ */
 CookieApi.prototype.fetchRequest = async function fetchRequest(request: Request): Promise<Response> {
     const response = await Api.prototype.fetchRequest.call(this, request);
     const setCookieHeader = response.headers.get('set-cookie');
+
+    // if set cookies headers are not set, just continue
     if (!setCookieHeader) {
         return response;
     }
 
     let cookies = {};
 
+    // parse multiple set-cookie headers
     setCookieHeader.split(';')
         .map((item) => {
             return item.indexOf('expires') === -1 ? item.replace(',', '\n') : item;

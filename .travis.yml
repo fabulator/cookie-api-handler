@@ -10,6 +10,7 @@ install:
 script:
     - npm run lint-export
     - npm run test
+    - npm run flow
 after_success:
   - codecov
 sudo: required
