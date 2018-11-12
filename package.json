@@ -26,7 +26,7 @@
     "flow-coverage-report": "^0.6.0",
     "flow-typed": "^2.4.0",
     "@socifi/jest-config": "^1.4.0",
-    "@socifi/rollup-config": "^1.6.0"
+    "@socifi/rollup-config": "^2.0.0"
   },
   "scripts": {
     "lint": "eslint ./src ./test",
