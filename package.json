@@ -1,10 +1,11 @@
 {
   "name": "cookie-api-handler",
-  "version": "1.1.0",
-  "description": "Handler for REST APIs",
+  "version": "2.0.0",
+  "description": "Handler for cookie APIs",
   "main": "dist/index.js",
-  "jsnext:main": "dist/index.es.js",
-  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.esm.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/fabulator/cookie-api-handler.git"
@@ -21,28 +22,25 @@
     "cookie"
   ],
   "devDependencies": {
-    "@socifi/eslint-config": "^1.9.0",
-    "flow-bin": "^0.86.0",
-    "flow-coverage-report": "^0.6.0",
-    "flow-typed": "^2.4.0",
-    "@socifi/jest-config": "^1.4.0",
-    "@socifi/rollup-config": "^1.6.0"
+    "@socifi/eslint-config": "^2.0.1",
+    "@socifi/jest-config": "^2.1.0",
+    "@socifi/rollup-config": "^2.0.1",
+    "@socifi/babel-config": "^0.6.0",
+    "@types/cookie": "^0.3.1"
   },
   "scripts": {
-    "lint": "eslint ./src ./test",
-    "lint-export": "npm run lint -- -o ./tests_results/checkstyle/js-checkstyle.xml -f checkstyle",
-    "flow": "flow",
-    "flow-init": "flow-typed install jest@22.x cookie@0.3.x cross-fetch@2.x",
-    "flow-coverage": "flow-coverage-report -f \"node node_modules/flow-bin/vendor/flow\" -i \"./src/**/*.js*\" -t html -t text -t json -o tests_results/coverage/flow",
+    "lint": "eslint --ext .ts ./src ./tests",
+    "lint:export": "npm run lint -- -o ./tests_results/checkstyle/js-checkstyle.xml -f checkstyle",
+    "tsc": "tsc",
     "test": "jest",
-    "test-build": "npm run test -- --config jest.config.build.js",
-    "build": "rm -rf ./dist && rollup --config ./rollup.config.js",
-    "test-all": "npm run lint && npm run flow && npm run flow-coverage && npm run test",
-    "prepublishOnly": "npm run build && npm run test-build"
+    "test:build": "npm run test -- --config jest.config.build.js",
+    "build": "rollup --config ./rollup.config.js",
+    "test:all": "npm run lint && npm run tsc && npm run test",
+    "prepublishOnly": "npm run build && npm run tsc && npm run test:build"
   },
   "dependencies": {
-    "cross-fetch": "^2.1.0",
     "cookie": "^0.3.1",
-    "rest-api-handler": "^1.8.0"
+    "cross-fetch": "^2.2.3",
+    "rest-api-handler": "^2.0.0"
   }
 }

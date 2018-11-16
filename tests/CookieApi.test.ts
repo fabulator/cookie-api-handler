@@ -1,14 +1,13 @@
-// @flow
-import { CookieApi } from './../src';
+import CookieApi from '../src';
 
-describe('CookieApi service testing', () => {
-    it('serialize cookies', () => {
+describe('Index service testing', () => {
+    it('serializes cookies', () => {
         expect(CookieApi.serializeCookies({
             a: '@rts',
         })).toEqual('a=%40rts');
     });
 
-    it('add and get cookies', () => {
+    it('adds and get cookies', () => {
         const api = new CookieApi('');
 
         api.addCookies({

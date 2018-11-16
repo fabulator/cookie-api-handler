@@ -1,6 +1,6 @@
-// @flow strict
-import cookie from 'cookie';
-import { Api } from 'rest-api-handler/src';
+// eslint-disable-next-line filenames/match-exported
+import { serialize, parse } from 'cookie';
+import { Api } from 'rest-api-handler';
 
 export default class CookieApi<ResponseType> extends Api<ResponseType> {
     /**
@@ -9,21 +9,20 @@ export default class CookieApi<ResponseType> extends Api<ResponseType> {
      * @param cookies - Object with cookies
      * @returns serialized cookies string
      */
-    static serializeCookies(cookies: { [string]: string }): string {
+    public static serializeCookies(cookies: { [cookie: string]: string }): string {
         return Object.keys(cookies).map((name) => {
-            return cookie.serialize(name, cookies[name]);
+            return serialize(name, cookies[name]);
         }).join(';');
     }
 
     /**
      * Process response headers, parse cookies and save them to object.
      *
-     * @private
      * @param request - Fetch request
      * @returns Response
      */
-    fetchRequest: (request: Request) => Promise<Response> = async (request) => {
-        const response = await Api.prototype.fetchRequest.call(this, request);
+    protected fetchRequest: (request: Request) => Promise<Response> = async (request) => {
+        const response = await super.fetchRequest.call(this, request);
 
         const setCookieHeader = response.headers.get('set-cookie');
 
@@ -36,15 +35,15 @@ export default class CookieApi<ResponseType> extends Api<ResponseType> {
 
         // parse multiple set-cookie headers
         setCookieHeader.split(';')
-            .map((item) => {
+            .map((item: string) => {
                 return item.indexOf('expires') === -1 ? item.replace(',', '\n') : item;
             })
             .join(';')
             .split('\n')
-            .map((item) => {
-                return cookie.parse(item.split(';')[0]);
+            .map((item: string) => {
+                return parse(item.split(';')[0]);
             })
-            .forEach((item) => {
+            .forEach((item: Object) => {
                 cookies = {
                     ...cookies,
                     ...item,
@@ -58,13 +57,13 @@ export default class CookieApi<ResponseType> extends Api<ResponseType> {
     /**
      * Get cookies as human readable object.
      */
-    getCookies(): ?{[string]: string} {
-        const cookies: ?string = this.getDefaultHeaders().cookie;
-        if (!cookies) {
+    public getCookies(): {[cookie: string]: string} | null {
+        const cookies = this.getDefaultHeaders().cookie;
+        if (typeof cookies !== 'string') {
             return null;
         }
 
-        return cookie.parse(cookies);
+        return parse(cookies);
     }
 
     /**
@@ -72,7 +71,7 @@ export default class CookieApi<ResponseType> extends Api<ResponseType> {
      *
      * @param cookies - Object of cookies
      */
-    addCookies(cookies: {[string]: string}) {
+    public addCookies(cookies: {[cookie: string]: string}) {
         this.setDefaultHeader('cookie', CookieApi.serializeCookies({
             ...(this.getCookies()),
             ...cookies,

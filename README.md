@@ -21,7 +21,7 @@ npm install cookie-api-handler
 Send requests:
 
 ```javascript
-const { CookieApi } = require('./../dist');
+const CookieApi = require('cookie-api-handler');
 
 (async () => {
     const api = new CookieApi('');
