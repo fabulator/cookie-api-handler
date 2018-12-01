@@ -2,7 +2,7 @@
 import { serialize, parse } from 'cookie';
 import { Api } from 'rest-api-handler';
 
-export default class CookieApi<ResponseType> extends Api<ResponseType> {
+export default class CookieApi<ResponseType = any> extends Api<ResponseType> {
     /**
      * Serialize Object of cookies to single string.
      *

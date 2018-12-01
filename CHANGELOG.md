@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] 2018-12-01
+### Changed
+- Upgrade packages
+
 ## [2.0.0] 2018-11-16
 ### Changed
 - Convert repo from Flow to Typescript
