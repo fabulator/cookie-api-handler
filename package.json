@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "cookie": "^0.3.1",
-    "cross-fetch": "^3.0.0",
+    "cross-fetch": "^3.0.1",
     "rest-api-handler": "^2.1.0"
   }
 }
