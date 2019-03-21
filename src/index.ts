@@ -43,7 +43,7 @@ export default class CookieApi<ResponseType = any> extends Api<ResponseType> {
             .map((item: string) => {
                 return parse(item.split(';')[0]);
             })
-            .forEach((item: Object) => {
+            .forEach((item: Record<string, string>) => {
                 cookies = {
                     ...cookies,
                     ...item,
