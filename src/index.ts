@@ -36,7 +36,7 @@ export default class CookieApi<ResponseType = any> extends Api<ResponseType> {
         // parse multiple set-cookie headers
         setCookieHeader.split(';')
             .map((item: string) => {
-                return item.indexOf('expires') === -1 ? item.replace(',', '\n') : item;
+                return !item.includes('expires') ? item.replace(',', '\n') : item;
             })
             .join(';')
             .split('\n')
