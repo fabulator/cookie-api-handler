@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.4.0] 2019-10-29
+### Changed
+- [8b9ee24](https://github.com/fabulator/cookie-api-handler/commit/8b9ee242389c6853ebed4aaad961ab247aa26a11) Update dependency rest-api-handler to ^2.4.1
+
 ## [2.3.0] 2019-10-24
 ### Changed
 - [f0bc50d](https://github.com/fabulator/cookie-api-handler/commit/f0bc50d3c71486ea0ae0dc5e203ea8e9cdb8ab71) Update dev dependency @socifi/rollup-config to ^2.2.2
