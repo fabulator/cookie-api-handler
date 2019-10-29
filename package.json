@@ -24,7 +24,7 @@
     "dependencies": {
         "@types/cookie": "^0.3.3",
         "cookie": "^0.4.0",
-        "rest-api-handler": "^2.3.0"
+        "rest-api-handler": "^2.4.1"
     },
     "devDependencies": {
         "@socifi/babel-config": "^1.0.0",
