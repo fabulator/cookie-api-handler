@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.13.0] 2020-03-07
+### Changed
+- [3630440](https://github.com/fabulator/cookie-api-handler/commit/3630440f60ccf91fcd7fb873665a98304fd6bd4a) Update dependency rest-api-handler to v2.13.0
+- [30cfe0f](https://github.com/fabulator/cookie-api-handler/commit/30cfe0fcaa324a8d0ee752502b64f1ee40098491) Update dev dependency @socifi/eslint-config to v2.10.2 
+
 ## [2.12.0] 2020-02-01
 ### Changed
 - [49b412d](https://github.com/fabulator/cookie-api-handler/commit/49b412dd2d0662cb9482387eb36f48159186ff4e) Update dependency rest-api-handler to v2.12.0
