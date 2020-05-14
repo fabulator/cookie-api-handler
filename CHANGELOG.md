@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.17.0] 2020-05-14
+### Changed
+- [0e2ce57](https://github.com/fabulator/cookie-api-handler/commit/0e2ce57a8c6b3e7808d58c07316689d5b71a2a40) Update dependency @types/cookie to ^0.4.0
+
 ## [2.16.0] 2020-05-02
 ### Changed
 - [0e036a5](https://github.com/fabulator/cookie-api-handler/commit/0e036a5d2713787b5b9c8b12c4e6d24c0e231836) Update dependency rest-api-handler to v2.15.0
