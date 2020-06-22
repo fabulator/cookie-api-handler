@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.20.0] 2020-06-22
+### Changed
+- [9e1d28c](https://github.com/fabulator/cookie-api-handler/commit/9e1d28cb87fb5308e9ae46fc747a2e801ae9472e) Update dependency rest-api-handler to v2.18.0
+- [9be2c79](https://github.com/fabulator/cookie-api-handler/commit/9be2c790dff051828cf989d4609e1619548d2f1a) Update dev dependency cross-fetch to v3.0.5 
+
 ## [2.19.0] 2020-06-02
 ### Changed
 - [0070f6b](https://github.com/fabulator/cookie-api-handler/commit/0070f6bd2f6d6ed5ee06de3d3030a98d1e7502f5) Update dependency rest-api-handler to v2.17.0
