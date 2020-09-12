@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v2.23.0 (2020-09-12)
+### Fixed
+- [3a3e6f2](https://github.com/fabulator/cookie-api-handler/commit/3a3e6f2e699593d721c069d305c910d6b6ae0100) Security lock update
+
+### Changed
+- [e5bdafa](https://github.com/fabulator/cookie-api-handler/commit/e5bdafad866b4d37b8aeeb23e61709eed1ba899c) Update dev dependency semantic-release-config-fabulator to v2 
+
 ## [2.22.0] 2020-07-17
 ### Changed
 - [f36dcb5](https://github.com/fabulator/cookie-api-handler/commit/f36dcb512d3cb1234d1467ba1b01c49f04d70c42) Update dependency rest-api-handler to v2.20.0
