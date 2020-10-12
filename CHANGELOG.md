@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v2.23.6 (2020-10-12)
+### Fixed
+- [5ce4be0](https://github.com/fabulator/cookie-api-handler/commit/5ce4be02796160546d6e7cce272c88ae68dd29cd) Update lock for security updated
+
 ## v2.23.5 (2020-10-05)
 ### Fixed
 - [183b1d6](https://github.com/fabulator/cookie-api-handler/commit/183b1d62877f07cf909969b2aba9ec921578cf64) Update lock for security updated
