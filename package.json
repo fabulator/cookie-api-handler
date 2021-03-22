@@ -1,6 +1,6 @@
 {
     "name": "cookie-api-handler",
-    "version": "2.23.34",
+    "version": "2.23.35",
     "description": "Handler for cookie APIs",
     "main": "dist/index.js",
     "jsnext:main": "dist/index.esm.js",
