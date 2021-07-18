@@ -10,9 +10,11 @@ export default class CookieApi<ResponseType = any> extends Api<ResponseType> {
      * @returns serialized cookies string
      */
     public static serializeCookies(cookies: { [cookie: string]: string }): string {
-        return Object.keys(cookies).map((name) => {
-            return serialize(name, cookies[name]);
-        }).join(';');
+        return Object.keys(cookies)
+            .map((name) => {
+                return serialize(name, cookies[name]);
+            })
+            .join(';');
     }
 
     /**
@@ -34,7 +36,8 @@ export default class CookieApi<ResponseType = any> extends Api<ResponseType> {
         let cookies = {};
 
         // parse multiple set-cookie headers
-        setCookieHeader.split(';')
+        setCookieHeader
+            .split(';')
             .map((item: string) => {
                 return !item.includes('expires') ? item.replace(',', '\n') : item;
             })
@@ -57,7 +60,7 @@ export default class CookieApi<ResponseType = any> extends Api<ResponseType> {
     /**
      * Get cookies as human readable object.
      */
-    public getCookies(): {[cookie: string]: string} | null {
+    public getCookies(): { [cookie: string]: string } | null {
         const cookies = this.getDefaultHeaders().cookie;
         if (typeof cookies !== 'string') {
             return null;
@@ -71,10 +74,13 @@ export default class CookieApi<ResponseType = any> extends Api<ResponseType> {
      *
      * @param cookies - Object of cookies
      */
-    public addCookies(cookies: {[cookie: string]: string}) {
-        this.setDefaultHeader('cookie', CookieApi.serializeCookies({
-            ...(this.getCookies()),
-            ...cookies,
-        }));
+    public addCookies(cookies: { [cookie: string]: string }) {
+        this.setDefaultHeader(
+            'cookie',
+            CookieApi.serializeCookies({
+                ...this.getCookies(),
+                ...cookies,
+            }),
+        );
     }
 }

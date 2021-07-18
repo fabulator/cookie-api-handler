@@ -2,9 +2,11 @@ import CookieApi from '../src';
 
 describe('Index service testing', () => {
     it('serializes cookies', () => {
-        expect(CookieApi.serializeCookies({
-            a: '@rts',
-        })).toEqual('a=%40rts');
+        expect(
+            CookieApi.serializeCookies({
+                a: '@rts',
+            }),
+        ).toEqual('a=%40rts');
     });
 
     it('adds and get cookies', () => {
