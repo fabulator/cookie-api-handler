@@ -1,6 +1,6 @@
 {
     "name": "cookie-api-handler",
-    "version": "2.25.11",
+    "version": "2.25.12",
     "description": "Handler for cookie APIs",
     "main": "dist/index.js",
     "module": "es/index.js",
