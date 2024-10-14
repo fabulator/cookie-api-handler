@@ -23,7 +23,7 @@
     ],
     "dependencies": {
         "@types/cookie": "^0.4.1",
-        "cookie": "^0.4.2",
+        "cookie": "^1.0.1",
         "rest-api-handler": "^2.22.0"
     },
     "devDependencies": {
